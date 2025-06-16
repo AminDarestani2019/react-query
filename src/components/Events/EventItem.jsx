@@ -6,9 +6,10 @@ export default function EventItem({ event }) {
     month: 'short',
     year: 'numeric',
   });
+    const baseUrl = import.meta.env.VITE_API_URL;
   return (
     <article className="event-item">
-      <img src={`http://localhost:3000/${event.image}`} alt={event.title} />
+      <img src={`${baseUrl}/${event.image}`} alt={event.title} />
       <div className="event-item-content">
         <div>
           <h2>{event.title}</h2>
