@@ -6,7 +6,9 @@ export default function EventItem({ event }) {
     month: 'short',
     year: 'numeric',
   });
-    const baseUrl = import.meta.env.VITE_API_URL;
+    //const baseUrl = import.meta.env.VITE_API_URL;
+    const baseUrl = 'http://localhost:3000';
+
   return (
     <article className="event-item">
       <img src={`${baseUrl}/${event.image}`} alt={event.title} />
@@ -17,7 +19,7 @@ export default function EventItem({ event }) {
           <p className="event-item-location">{event.location}</p>
         </div>
         <p>
-          <Link to={`/events/${event.id}`} className="button">
+          <Link to={`/react-query/events/${event.id}`} className="button">
             View Details
           </Link>
         </p>

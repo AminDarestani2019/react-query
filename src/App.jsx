@@ -4,41 +4,50 @@ import {
   createBrowserRouter,
 } from 'react-router-dom';
 
-import { QueryClientProvider,QueryClient } from '@tanstack/react-query';
+import { QueryClientProvider } from '@tanstack/react-query';
+
 import Events from './components/Events/Events.jsx';
 import EventDetails from './components/Events/EventDetails.jsx';
 import NewEvent from './components/Events/NewEvent.jsx';
-import EditEvent from './components/Events/EditEvent.jsx';
 
+import EditEvent,{
+loader as editEventLoader,
+action as editEventAction
+} from './components/Events/EditEvent.jsx';
+
+import { queryClient } from './util/http.js';
+
+const base = import.meta.env.BASE_URL;
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Navigate to="/events" />,
+    path: base+'/',
+    element: <Navigate to="/react-query/events" />,
   },
   {
-    path: '/events',
+    path: base+'/events',
     element: <Events />,
 
     children: [
       {
-        path: '/events/new',
+        path: base+'/events/new',
         element: <NewEvent />,
       },
     ],
   },
   {
-    path: '/events/:id',
+    path: base+'/events/:id',
     element: <EventDetails />,
     children: [
       {
-        path: '/events/:id/edit',
+        path: base+'/events/:id/edit',
         element: <EditEvent />,
+        loader: editEventLoader,
+        action: editEventAction
       },
     ],
   },
 ]);
 
-const queryClient = new QueryClient();
 
 function App() {
   return (
