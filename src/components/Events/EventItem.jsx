@@ -6,8 +6,8 @@ export default function EventItem({ event }) {
     month: 'short',
     year: 'numeric',
   });
-    //const baseUrl = import.meta.env.VITE_API_URL;
-    const baseUrl = 'http://localhost:3000';
+    const baseUrl = import.meta.env.VITE_API_URL;
+    //const baseUrl = 'http://localhost:3000';
 
   return (
     <article className="event-item">

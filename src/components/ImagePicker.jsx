@@ -1,6 +1,6 @@
 export default function ImagePicker({ images, selectedImage, onSelect }) {
-  // const baseUrl = import.meta.env.VITE_API_URL;
-  const baseUrl = 'http://localhost:3000';
+  const baseUrl = import.meta.env.VITE_API_URL;
+  //const baseUrl = 'http://localhost:3000';
   return (
     <div id="image-picker">
       <p>Select an image</p>

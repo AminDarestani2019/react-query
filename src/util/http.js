@@ -1,5 +1,7 @@
 import { QueryClient } from '@tanstack/react-query';
-const base = 'http://localhost:3000';
+//const base = 'http://localhost:3000';
+const base = import.meta.env.VITE_API_URL;
+
 export const queryClient = new QueryClient();
 
 export async function fetchEvents({ signal, searchTerm, max }) {
